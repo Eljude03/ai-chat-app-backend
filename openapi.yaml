@@ -1,0 +1,37 @@
+openapi: 3.0.1
+info:
+  title: Chat API
+  version: 1.0.0
+paths:
+  /sendMessage:
+    post:
+      summary: Send a message to a chat room
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                room:
+                  type: string
+                message:
+                  type: string
+                user:
+                  type: string
+      responses:
+        200:
+          description: Message sent successfully
+  /negotiate:
+    get:
+      summary: Get Web PubSub connection information
+      responses:
+        200:
+          description: WebSocket connection info
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
